@@ -15,7 +15,11 @@ sets the X-Frame-Options header. It restricts who can put your site in a frame. 
 
 app.use(helmet.xssFilter()) // evita que se mande código para hackear el sistema en los inputs 
 
-
+app.use(helmet.noSniff())
+/*MIME type sniffing is an operation conducted by many browsers. Each browser behaves differently on that matter, but overall, MIME sniffing 
+is an action where they determine a page content type depending on that page content. This is can be dangerous as it could allow attackers to 
+hide HTML code into a .jpg file, and have the visitor's browser interpret the page and execute client code (XSS) because the browser determined 
+the file was HTML code instead of a JPG image.*/
 
 
 
