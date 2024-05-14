@@ -1,9 +1,16 @@
 const express = require('express');
 const app = express();
 
-const helmet = require("helmet");
+const helmet = require("helmet"); // helmet se encuentra en el documento package.json
 
-app.use(helmet.hidePoweredBy())
+app.use(helmet.hidePoweredBy()) // evita que se vea si utilizas php, node.js o con qué te conectas al servidor
+
+app.use(helmet.frameguard({action: 'deny'})) // evita que se puedan crear frames 
+/*Your page could be put in a <frame> or <iframe> without your consent. This can result in clickjacking attacks, 
+among other things. Clickjacking is a technique of tricking a user into interacting with a page different from what 
+the user thinks it is. This can be obtained by executing your page in a malicious context, by means of iframing. In 
+that context, a hacker can put a hidden layer over your page. Hidden buttons can be used to run bad scripts. This middleware 
+sets the X-Frame-Options header. It restricts who can put your site in a frame. It has three modes: DENY, SAMEORIGIN, and ALLOW-FROM.*/
 
 
 
