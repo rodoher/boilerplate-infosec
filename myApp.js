@@ -41,9 +41,15 @@ high security needs you can disable DNS prefetching, at the cost of a performanc
 
 app.use(helmet.noCache()) // evita que la página web guarde caché en el navegador
 
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "'trusted-cdn.com'"]
 
+  }
+}))
 
-
+/* Indica qué scripts se pueden ejecutar en esa página web*/
 
 
 
