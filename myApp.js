@@ -21,6 +21,7 @@ is an action where they determine a page content type depending on that page con
 hide HTML code into a .jpg file, and have the visitor's browser interpret the page and execute client code (XSS) because the browser determined 
 the file was HTML code instead of a JPG image.*/
 
+app.use(helmet.ieNoOpen)
 
 
 
