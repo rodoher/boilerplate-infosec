@@ -13,6 +13,8 @@ that context, a hacker can put a hidden layer over your page. Hidden buttons can
 sets the X-Frame-Options header. It restricts who can put your site in a frame. It has three modes: DENY, SAMEORIGIN, and ALLOW-FROM.*/
 
 
+app.use(helmet.xssFilter()) // evita que se mande código para hackear el sistema en los inputs 
+
 
 
 
