@@ -25,8 +25,8 @@ app.use(helmet.ieNoOpen()) /*Some web applications will serve untrusted HTML for
 those HTML files in the context of your site. This means that an untrusted HTML page could start doing bad things in the context of your pages. 
 This middleware sets the X-Download-Options header to noopen. This will prevent IE users from executing downloads in the trusted site's context.*/
 
-
-
+const ninetyDaysInSeconds = 90*24*60*60
+app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}) )
 
 
 
