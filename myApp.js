@@ -21,7 +21,11 @@ is an action where they determine a page content type depending on that page con
 hide HTML code into a .jpg file, and have the visitor's browser interpret the page and execute client code (XSS) because the browser determined 
 the file was HTML code instead of a JPG image.*/
 
-app.use(helmet.ieNoOpen)
+app.use(helmet.ieNoOpen()) /*Some web applications will serve untrusted HTML for download. Some versions of Internet Explorer by default open 
+those HTML files in the context of your site. This means that an untrusted HTML page could start doing bad things in the context of your pages. 
+This middleware sets the X-Download-Options header to noopen. This will prevent IE users from executing downloads in the trusted site's context.*/
+
+
 
 
 
