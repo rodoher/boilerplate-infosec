@@ -44,7 +44,7 @@ app.use(helmet.noCache()) // evita que la página web guarde caché en el navega
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "'trusted-cdn.com'"]
+    scriptSrc: ["'self'", "trusted-cdn.com"]
 
   }
 }))
